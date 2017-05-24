@@ -1,0 +1,7 @@
+.ShoppingList {
+
+}
+
+.ShoppingList .ticked-off {
+  text-decoration: line-through;
+}
