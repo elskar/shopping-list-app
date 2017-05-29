@@ -1,4 +1,4 @@
-import { TICK_OFF_ITEM, ADD_ITEM } from './actions'
+import { TICK_OFF_ITEM, ADD_ITEM, FETCHED_ITEMS } from './actions'
 
 
 const initialState = [
@@ -28,6 +28,19 @@ export function shoppingList(state = initialState, action) {
           tickedOff: false,
           text: action.text
         }
+      ]
+
+    case FETCHED_ITEMS:
+      const titles = action.items
+        .map(item => ({
+          id: state.length + item.id,
+          tickedOff: false,
+          text: item.title
+        }))
+
+      return [
+        ...state,
+        ...titles
       ]
 
     default:

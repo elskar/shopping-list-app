@@ -5,14 +5,14 @@ import './ShoppingList.css'
 
 
 
-
-
-
-const ShoppingList = ({ items, onTickItem }) => (
+const ShoppingList = ({ items, onTickItem, onFetchItems }) => (
+  <div>
+  <button onClick={() => onFetchItems()}>Fetch items from server</button>
   <ul className="ShoppingList">
     {items.map( (item, index) =>
       <li
         key={index}
+        data-search={item.text}
         className={item.tickedOff ? 'ticked-off' : ''}
         onClick={() => onTickItem(item.id)}
       >
@@ -20,8 +20,8 @@ const ShoppingList = ({ items, onTickItem }) => (
       </li>
     )}
   </ul>
+  </div>
 )
-
 
 
 

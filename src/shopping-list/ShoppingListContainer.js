@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import ShoppingList from './ShoppingList'
-import { tickOffItem, addItem } from './actions'
+import { tickOffItem, addItem, fetchItems } from './actions'
 
 
 const mapStateToProps = (state) => {
@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     onAddItem: (text) => {
       dispatch(addItem(text))
+    },
+    onFetchItems: () => {
+      dispatch(fetchItems())
     }
   }
 }
